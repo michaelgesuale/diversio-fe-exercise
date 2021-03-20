@@ -2,16 +2,17 @@ import './index.css';
 
 const BORDER_STYLE = "2px solid black"
 const ColorSelectorOption = (props) => {
+
+    const {colorCode, isSelected, selectColor} = props;
+
     return (
         <div 
-            style={
-                {
-                    backgroundColor: props.colorCode,
-                    outline: props.isSelected && BORDER_STYLE
-                }
-            } 
+            style={{
+                backgroundColor: colorCode,
+                outline: isSelected && BORDER_STYLE
+            }}
             className="color-selector-option"
-            onClick={() => {props.selectColor(props.colorCode)}}
+            onClick={() => {selectColor(colorCode)}}
         />
     )
 }

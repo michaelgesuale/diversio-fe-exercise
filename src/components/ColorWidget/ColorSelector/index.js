@@ -3,13 +3,18 @@ import './index.css';
 import ColorSelectorOption from '../ColorSelectorOption';
 
 const ColorSelector = (props) => {
-    const colorSelectorOptions = props.colorList.map(colorCode =>
-        <ColorSelectorOption 
+
+    const { colorList, selectColor, selectedColor } = props;
+
+    const colorSelectorOptions = colorList.map(colorCode =>
+        <ColorSelectorOption
+            key={colorCode} 
             colorCode={colorCode} 
-            selectColor={props.selectColor}
-            isSelected={props.currentSelectedColor === colorCode}
+            selectColor={selectColor}
+            isSelected={selectedColor === colorCode}
         />
     )
+
     return (
         <div className="color-selector-wrapper">
             {colorSelectorOptions}
